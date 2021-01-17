@@ -1,0 +1,42 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "first_name": "Sebastian",
+            "last_name": "Eschweiler",
+            "email": "sebastian@codingthesmartway.com"
+        },
+        {
+            "id": 2,
+            "first_name": "Steve",
+            "last_name": "Palmer",
+            "email": "steve@codingthesmartway.com"
+        },
+        {
+            "id": 3,
+            "first_name": "Ann",
+            "last_name": "Smith",
+            "email": "ann@codingthesmartway.com"
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "author": "Sebastian",
+            "title": "Eschweiler",
+            "body": "some dummy data"
+        },
+        {
+            "id": 2,
+            "author": "Janet Jackson",
+            "title": "New Music",
+            "body": "post body"
+        },
+        {
+            "id": 3,
+            "author": "Kevin Durant",
+            "title": "New Game",
+            "body": "The best player"
+        }
+    ]
+}

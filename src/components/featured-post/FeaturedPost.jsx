@@ -7,7 +7,7 @@ const extra = (
 			<Icon name="user" />
 			16 Friends
 		</a>
-		<i class="far fa-thumbs-up" style={{ float: "right" }} />
+		<i className="far fa-thumbs-up" style={{ float: "right" }} />
 	</Fragment>
 );
 

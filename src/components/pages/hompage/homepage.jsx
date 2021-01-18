@@ -1,13 +1,11 @@
 import React from "react";
 import { Grid, Segment } from "semantic-ui-react";
-import FeaturedPost from "../../featured-post/FeaturedPost";
+import FeaturedPosts from "../../latest-posts/LatestPosts";
 
 const Homepage = () => (
 	<Grid>
 		<Grid.Column width={12}>
-			<FeaturedPost />
-			<FeaturedPost />
-			<FeaturedPost />
+			<FeaturedPosts />
 		</Grid.Column>
 		<Grid.Column width={4}>
 			<Segment>

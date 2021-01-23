@@ -1,14 +1,14 @@
+import types from "../action-types/popUpTypes";
+
 export const openPopUp = (popUpName) => {
-	console.log("openPopUp");
 	return {
-		type: "OPEN",
+		type: types.OPEN,
 		payload: popUpName
 	};
 };
 export const closePopUp = (popUpName) => {
-	console.log("closepopup");
 	return {
-		type: "CLOSE",
+		type: types.CLOSE,
 		payload: popUpName
 	};
 };

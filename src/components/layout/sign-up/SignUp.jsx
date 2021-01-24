@@ -27,16 +27,17 @@ const SignUp = () => {
 		password: Yup.string()
 			.min(6, "Password must contain at leats 6 characters")
 			.required("Password is required"),
-		confirmPassword: Yup.string().oneOf(
-			[Yup.ref("password"), null],
-			"Passwords must match"
-		)
+		confirmPassword: Yup.string()
+			.required("Confirm Password is required")
+			.oneOf([Yup.ref("password"), null], "Passwords must match")
 	});
 
 	const handleChange = ({ target: { name, value } }) =>
 		setNewUser({ ...newUser, [name]: value });
 
-	const handleSubmit = (values) => newUserSchema.validate(values);
+	const handleSubmit = (values) => {
+		console.log("handleSubmit", values);
+	};
 
 	const { firstName, lastName, email, password, confirmPassword } = newUser;
 
@@ -47,14 +48,13 @@ const SignUp = () => {
 			<Formik
 				initialValues={initialState}
 				validationSchema={newUserSchema}
-				onSubmit={(values) => console.log("values", values)}>
-				<Form className="ui form" size="mini">
+				onSubmit={(values) => handleSubmit(values)}>
+				<Form className="ui form" size="mini ">
 					<CustomTextField
 						label="First Name"
 						type="text"
 						name="firstName"
 						placeholder="custom"
-						onChange={(e) => handleChange(e)}
 						value={firstName}
 					/>
 
@@ -63,7 +63,6 @@ const SignUp = () => {
 						placeholder="Last Name"
 						name="lastName"
 						value={lastName}
-						onChange={(e) => handleChange(e)}
 					/>
 
 					<CustomTextField
@@ -71,7 +70,6 @@ const SignUp = () => {
 						placeholder="Email"
 						value={email}
 						name="email"
-						onChange={(e) => handleChange(e)}
 					/>
 
 					<CustomTextField
@@ -79,7 +77,6 @@ const SignUp = () => {
 						placeholder="Password"
 						value={password}
 						name="password"
-						onChange={(e) => handleChange(e)}
 					/>
 
 					<CustomTextField
@@ -87,7 +84,6 @@ const SignUp = () => {
 						placeholder="Confirm Password"
 						value={confirmPassword}
 						name="confirmPassword"
-						onChange={(e) => handleChange(e)}
 					/>
 
 					<Button type="submit" positive>
@@ -104,8 +100,3 @@ const SignUp = () => {
 	);
 };
 export default SignUp;
-
-/* 
-
-	
-*/

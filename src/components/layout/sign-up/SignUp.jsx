@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Button, Header, FormField, Label, Message } from "semantic-ui-react";
+import { Button, Header } from "semantic-ui-react";
 import { closePopUp } from "../../../redux/actions/popupActions";
 import { popUpName } from "../../../redux/reducers/popupReducer";
-import { Formik, Form, Field, ErrorMessage, useField } from "formik";
-import * as Yup from "yup";
+import { Formik, Form } from "formik";
 import CustomTextField from "../../form/CustomTextField";
+import newUserSchema from "./validationSchema";
+import axios from "axios";
 
 const SignUp = () => {
 	const dispatch = useDispatch();
@@ -16,30 +17,21 @@ const SignUp = () => {
 		password: "",
 		confirmPassword: ""
 	};
-	const [newUser, setNewUser] = useState(initialState);
 
-	const newUserSchema = Yup.object().shape({
-		firstName: Yup.string().required("First name is required"),
-		lastName: Yup.string().required("Last name is required"),
-		email: Yup.string()
-			.email("Please enter a correct email address")
-			.required("Email is required"),
-		password: Yup.string()
-			.min(6, "Password must contain at leats 6 characters")
-			.required("Password is required"),
-		confirmPassword: Yup.string()
-			.required("Confirm Password is required")
-			.oneOf([Yup.ref("password"), null], "Passwords must match")
-	});
-
-	const handleChange = ({ target: { name, value } }) =>
-		setNewUser({ ...newUser, [name]: value });
-
-	const handleSubmit = (values) => {
-		console.log("handleSubmit", values);
+	const addNewUser = async (newUser) => {
+		try {
+			/* In the backend I need to check if a user alerady exist */
+			await axios.post("/users", newUser);
+			dispatch(closePopUp(popUpName.SIGN_UP));
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
-	const { firstName, lastName, email, password, confirmPassword } = newUser;
+	const onSubmit = (values, { resetForm }) => {
+		addNewUser(values);
+		resetForm({});
+	};
 
 	return (
 		<div>
@@ -48,41 +40,32 @@ const SignUp = () => {
 			<Formik
 				initialValues={initialState}
 				validationSchema={newUserSchema}
-				onSubmit={(values) => handleSubmit(values)}>
+				onSubmit={onSubmit}>
 				<Form className="ui form" size="mini ">
 					<CustomTextField
 						label="First Name"
 						type="text"
 						name="firstName"
-						placeholder="custom"
-						value={firstName}
+						placeholder="First Name"
 					/>
 
 					<CustomTextField
 						label="Last Name"
 						placeholder="Last Name"
 						name="lastName"
-						value={lastName}
 					/>
 
-					<CustomTextField
-						label="Email"
-						placeholder="Email"
-						value={email}
-						name="email"
-					/>
+					<CustomTextField label="Email" placeholder="Email" name="email" />
 
 					<CustomTextField
 						label="Password"
 						placeholder="Password"
-						value={password}
 						name="password"
 					/>
 
 					<CustomTextField
 						label="Confirm Password"
 						placeholder="Confirm Password"
-						value={confirmPassword}
 						name="confirmPassword"
 					/>
 

@@ -1,18 +1,12 @@
 import React from "react";
-import {
-	useField,
-	Form,
-	FormikProps,
-	Formik,
-	Field,
-	ErrorMessage
-} from "formik";
+import { useField, ErrorMessage } from "formik";
 import { FormField } from "semantic-ui-react";
 
 const CustomTextField = ({ label, ...props }) => {
-	const [field, meta, helpers] = useField(props);
+	const [field] = useField(props);
 	return (
 		<FormField>
+			{label && <label>{label}</label>}
 			<input {...props} {...field} />
 			<ErrorMessage
 				name={props.name}

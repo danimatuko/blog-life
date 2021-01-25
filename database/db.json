@@ -1,45 +1,77 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "first_name": "Sebastian",
-            "last_name": "Eschweiler",
-            "email": "sebastian@codingthesmartway.com"
-        },
-        {
-            "id": 2,
-            "first_name": "Steve",
-            "last_name": "Palmer",
-            "email": "steve@codingthesmartway.com"
-        },
-        {
-            "id": 3,
-            "first_name": "Ann",
-            "last_name": "Smith",
-            "email": "ann@codingthesmartway.com"
-        }
-    ],
-    "posts": [
-        {
-            "id": 1,
-            "author": "Sebastian",
-            "title": "Eschweiler",
-            "body": "some dummy dsome dummy data lorem f attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button  use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx",
-            "imageURL": "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-        },
-        {
-            "id": 2,
-            "author": "Janet Jackson",
-            "title": "New Music",
-            "body": "post and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsata lorem f attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link,",
-            "imageURL": "https://images.unsplash.com/photo-1610905532525-2fc7e3729f3b?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDh8eEh4WVRNSExnT2N8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-        },
-        {
-            "id": 3,
-            "author": "Kevin Durant",
-            "title": "New Game",
-            "body": "The and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsata lorem f attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, player",
-            "imageURL": "https://images.unsplash.com/photo-1610931002340-fe06e753976e?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8eEh4WVRNSExnT2N8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Sebastian",
+      "last_name": "Eschweiler",
+      "email": "sebastian@codingthesmartway.com"
+    },
+    {
+      "id": 2,
+      "first_name": "Steve",
+      "last_name": "Palmer",
+      "email": "steve@codingthesmartway.com"
+    },
+    {
+      "id": 3,
+      "first_name": "Ann",
+      "last_name": "Smith",
+      "email": "ann@codingthesmartway.com"
+    },
+    {
+      "firstName": "Dani",
+      "lastName": "Matuko",
+      "email": "matuko305@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 4
+    },
+    {
+      "firstName": "Anderson",
+      "lastName": "Paak",
+      "email": "paak@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 5
+    },
+    {
+      "firstName": "Dani",
+      "lastName": "Matuko",
+      "email": "matuko305@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 6
+    },
+    {
+      "firstName": "Dani",
+      "lastName": "Matuko",
+      "email": "bilal@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 7
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "author": "Sebastian",
+      "title": "Eschweiler",
+      "body": "some dummy dsome dummy data lorem f attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button  use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx",
+      "imageURL": "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+    },
+    {
+      "id": 2,
+      "author": "Janet Jackson",
+      "title": "New Music",
+      "body": "post and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsata lorem f attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link,",
+      "imageURL": "https://images.unsplash.com/photo-1610905532525-2fc7e3729f3b?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDh8eEh4WVRNSExnT2N8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "id": 3,
+      "author": "Kevin Durant",
+      "title": "New Game",
+      "body": "The and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsata lorem f attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, player",
+      "imageURL": "https://images.unsplash.com/photo-1610931002340-fe06e753976e?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8eEh4WVRNSExnT2N8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    }
+  ]
 }

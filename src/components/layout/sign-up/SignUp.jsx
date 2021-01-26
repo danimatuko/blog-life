@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { Button, Header } from "semantic-ui-react";
 import { closePopUp } from "../../../redux/actions/popupActions";

@@ -1,28 +1,34 @@
-import { types } from "../action-types/userTypes";
+import types from "../action-types/authTypes";
 
 const initialState = {
-	id: null,
-	firstName: null,
-	lastName: null,
-	email: null,
-	posts: []
+	isAuthenticated: false,
+	loading: false,
+	user: null,
+	error: null
 };
 
-const userReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case types.SIGN_UP:
-			return {
-				...state,
-				posts: action.payload
-			};
 		case types.LOGIN:
 			return {
 				...state,
-				posts: action.payload
+				isAuthenticated: true,
+				loading: false,
+				user: action.payload,
+				error: null
 			};
+		case types.LOGOUT:
+			return {
+				...state,
+				isAuthenticated: false,
+				loading: false,
+				user: null,
+				error: null
+			};
+
 		default:
 			return state;
 	}
 };
 
-export default userReducer;
+export default authReducer;

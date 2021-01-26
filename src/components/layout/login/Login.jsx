@@ -1,35 +1,72 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Button, Form, Header } from "semantic-ui-react";
+import { Button, Header } from "semantic-ui-react";
 import { closePopUp } from "../../../redux/actions/popupActions";
-import { popUpName } from "../../../redux/reducers/popupReducer";
+import { login } from "../../../redux/actions/authActions";
 
-const Login = () => {
+import { popUpName } from "../../../redux/reducers/popupReducer";
+import { Formik, Form } from "formik";
+import CustomTextField from "../../form/CustomTextField";
+import newUserSchema from "./loginSchema";
+import axios from "axios";
+
+const SignUp = () => {
 	const dispatch = useDispatch();
+	const initialState = {
+		email: "",
+		password: ""
+	};
+
+	const loginUser = async (currentUser) => {
+		try {
+			/* In the backend I need to check if a user alerady exist */
+			const users = await axios.get("/users");
+			if (!users) throw Error("There are no users");
+			console.log("users", users);
+			const authUser = users.data.find(
+				(user) => user.email === currentUser.email
+			);
+			if (!authUser) throw Error("User does not exist");
+			dispatch(closePopUp(popUpName.SIGN_UP));
+			dispatch(login(authUser));
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	const onSubmit = (values, { resetForm }) => {
+		loginUser(values);
+		resetForm({});
+	};
+
 	return (
 		<div>
-			<Header as="h2" size="medium" textAlign="center" content="Login" />
+			<Header as="h2" size="medium" textAlign="center" content="Sign In" />
 
-			<Form size="mini">
-				<Form.Field>
-					<label>Email</label>
-					<input placeholder="Email" />
-				</Form.Field>
-				<Form.Field>
-					<label>Password</label>
-					<input placeholder="Password" />
-				</Form.Field>
+			<Formik
+				initialValues={initialState}
+				validationSchema={newUserSchema}
+				onSubmit={onSubmit}>
+				<Form className="ui form" size="mini ">
+					<CustomTextField label="Email" placeholder="Email" name="email" />
 
-				<Button type="submit" positive >
-					Login
-				</Button>
-				<Button
-					type="button"
-					onClick={() => dispatch(closePopUp(popUpName.LOGIN))}>
-					Cancel
-				</Button>
-			</Form>
+					<CustomTextField
+						label="Password"
+						placeholder="Password"
+						name="password"
+					/>
+
+					<Button type="submit" positive>
+						Sign-Up
+					</Button>
+					<Button
+						type="button"
+						onClick={() => dispatch(closePopUp(popUpName.SIGN_UP))}>
+						Cancel
+					</Button>
+				</Form>
+			</Formik>
 		</div>
 	);
 };
-export default Login;
+export default SignUp;

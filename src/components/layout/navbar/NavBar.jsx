@@ -1,15 +1,16 @@
 import React, { Fragment } from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, Image, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { openPopUp } from "../../../redux/actions/popupActions";
 import { popUpName } from "../../../redux/reducers/popupReducer";
-import { logout } from "../../../redux/actions/authActions";
+import ProfileDropDown from "./profile-drop-down/ProfileDropDown";
 
 const NavBar = () => {
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth);
+
 	const { isAuthenticated, user } = auth;
 	return (
 		<Menu as="nav" text className="main-nav">
@@ -21,14 +22,18 @@ const NavBar = () => {
 					<Fragment>
 						<Menu.Item
 							as="a"
-							onClick={() => dispatch(openPopUp(popUpName.LOGIN))}>
+							onClick={() =>
+								dispatch(openPopUp(popUpName.LOGIN))
+							}>
 							<i className="fas fa-sign-in-alt" />
 							<span>Login</span>
 						</Menu.Item>
 
 						<Menu.Item
 							as="a"
-							onClick={() => dispatch(openPopUp(popUpName.SIGN_UP))}>
+							onClick={() =>
+								dispatch(openPopUp(popUpName.SIGN_UP))
+							}>
 							<i className="fas fa-user-plus" />
 							<span>Sign Up</span>
 						</Menu.Item>
@@ -36,9 +41,8 @@ const NavBar = () => {
 				) : (
 					<Fragment>
 						<Menu.Item as="span">Hi {user.firstName}</Menu.Item>
-						<Menu.Item as="a" onClick={() => dispatch(logout())}>
-							<i className="fas fa-sign-out-alt" />
-							<span>Logout</span>
+						<Menu.Item>
+							<ProfileDropDown />
 						</Menu.Item>
 					</Fragment>
 				)}

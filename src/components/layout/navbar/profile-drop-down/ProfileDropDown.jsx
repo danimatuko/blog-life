@@ -18,6 +18,7 @@ const ProfileDropDown = () => {
 		<Dropdown trigger={trigger} pointing="top right">
 			<Dropdown.Menu>
 				<Dropdown.Item as={Link} text="My Profile" to="/profile" />
+				<Dropdown.Item as={Link} text="New Post" to="/new-post" />
 				<Dropdown.Item as={Link} text="My Posts" to="/my-posts" />
 				<Dropdown.Item
 					as={Link}

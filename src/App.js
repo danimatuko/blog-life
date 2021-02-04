@@ -4,12 +4,13 @@ import NavBar from "./components/layout/navbar/NavBar";
 import { Container } from "semantic-ui-react";
 import Hero from "./components/layout/hero/Hero";
 import Homepage from "./components/pages/hompage/homepage";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/layout/login/Login";
 import Popup from "./components/layout/popup/Popup";
 import SignUp from "./components/layout/sign-up/SignUp";
 import { popUpName } from "./redux/reducers/popupReducer";
+import NewPost from "./components/pages/new-post/NewPost";
 
 const App = () => {
 	const popUpType = useSelector((state) => state.popUp.name);
@@ -26,6 +27,7 @@ const App = () => {
 					<Hero />
 					<Switch>
 						<Route exact path="/" component={Homepage} />
+						<Route exact path="/new-post" component={NewPost} />
 					</Switch>
 				</Container>
 			</Router>

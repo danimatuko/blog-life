@@ -2,12 +2,12 @@ import React from "react";
 import { useField, ErrorMessage } from "formik";
 import { FormField } from "semantic-ui-react";
 
-const CustomTextField = ({ label, ...props }) => {
+const CustomTextArea = ({ label, ...props }) => {
 	const [field] = useField(props);
 	return (
 		<FormField>
 			{label && <label>{label}</label>}
-			<input {...props} {...field} />
+			<textarea {...props} {...field} />
 			<ErrorMessage
 				name={props.name}
 				component="div"
@@ -17,6 +17,4 @@ const CustomTextField = ({ label, ...props }) => {
 	);
 };
 
-export default CustomTextField;
-
-
+export default CustomTextArea;

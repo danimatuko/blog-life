@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Menu, Image, Icon } from "semantic-ui-react";
+import { Menu} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { useDispatch, useSelector } from "react-redux";

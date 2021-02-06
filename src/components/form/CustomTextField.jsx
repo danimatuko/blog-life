@@ -4,10 +4,11 @@ import { FormField } from "semantic-ui-react";
 
 const CustomTextField = ({ label, ...props }) => {
 	const [field] = useField(props);
+
 	return (
 		<FormField>
 			{label && <label>{label}</label>}
-			<input {...props} {...field} />
+			<input {...field} {...props} type="text" />
 			<ErrorMessage
 				name={props.name}
 				component="div"
@@ -18,5 +19,3 @@ const CustomTextField = ({ label, ...props }) => {
 };
 
 export default CustomTextField;
-
-

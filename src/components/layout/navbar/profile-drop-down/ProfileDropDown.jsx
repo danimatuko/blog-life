@@ -12,7 +12,7 @@ const trigger = <Image src={userImage} avatar />;
 const ProfileDropDown = () => {
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth);
-	const { isAuthenticated, user } = auth;
+	//const { isAuthenticated, user } = auth;
 
 	return (
 		<Dropdown trigger={trigger} pointing="top right">
